@@ -149,7 +149,6 @@ If you find E2OC helpful for your research or applied projects, please cite:
 If you are interested in LLM4Opt or E2OC, you can:
 
 - :email: Contact us through email: junhaoqiu2-c@my.cityu.edu.hk
-- :books: Visit a collection of references and research papers on LLM4Opt
 - :people_holding_hands: Join our Group (coming soon)
 
 If you encounter any difficulty using the code, please contact us through the above or submit an issue.
