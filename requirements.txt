@@ -1,0 +1,12 @@
+numpy<2.0.0
+scipy
+hvwfg>=1.0.0
+torch
+requests
+openai
+tensorboard
+wandb
+matplotlib
+codebleu
+tree-sitter-python==0.21
+networkx

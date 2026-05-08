@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "e2oc"
+version = "1.0.0"
+description = "E2OC: Evolution of Operator Combination for Multi-Objective Optimization"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [
+    {name = "E2OC Authors"},
+]
+keywords = [
+    "evolutionary-algorithm",
+    "multi-objective-optimization",
+    "nsga-ii",
+    "large-language-models",
+    "automated-algorithm-design",
+    "hypervolume",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy<2.0.0",
+    "scipy",
+    "hvwfg>=1.0.0",
+    "torch",
+    "requests",
+    "openai",
+    "networkx",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-cov", "black", "isort"]
+tensorboard = ["tensorboard"]
+wandb = ["wandb"]
+matplotlib = ["matplotlib"]
+codebleu = ["codebleu", "tree-sitter-python==0.21"]
+
+[tool.setuptools.packages.find]
+exclude = ["tests", "outputs_tsp", "experiments", "results"]
