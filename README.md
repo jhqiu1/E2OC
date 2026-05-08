@@ -15,7 +15,7 @@
 
 ### Design Paradigm
 
-![Pipeline Comparison](figures/figure_Com_pipeline_01.png)
+![Pipeline Comparison](docs/figures/figure_Com_pipeline_01.png)
 
 Multi-Objective Evolutionary Algorithms (MOEAs) rely on neighborhood search operators (crossover, mutation, local search) whose design is critical to performance. Three paradigms are compared:
 
@@ -25,7 +25,7 @@ Multi-Objective Evolutionary Algorithms (MOEAs) rely on neighborhood search oper
 
 ### E2OC Framework
 
-![E2OC Framework](figures/figure_framwork_01.png)
+![E2OC Framework](docs/figures/figure_framwork_01.png)
 
 E2OC consists of four core components:
 
