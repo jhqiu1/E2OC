@@ -4,40 +4,39 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Release](https://img.shields.io/badge/Release-v1.0.0-green.svg)]()
 [![arXiv](https://img.shields.io/badge/arXiv-2601.17899-b31b1b.svg)](https://arxiv.org/abs/2601.17899)
+[![Website](https://img.shields.io/badge/Website-E2OC-8A2BE2.svg)](https://jhqiu1.github.io/e2oc)
 
 **E2OC** is the first framework for multi-operator co-design in MOEAs. It leverages MDP to analyze cross-operator coupling relationships and jointly evolves operator design strategies with executable code via Monte Carlo Tree Search. Existing LLM-based AHD methods optimize each operator independently, ignoring a fundamental challenge: modifying one operator reshapes the search landscape for others. E2OC addresses this by co-evolving interdependent operators, and its modular architecture enables flexible extension with new components.
 
-**Website**: [https://jhqiu1.github.io/e2oc](https://jhqiu1.github.io/e2oc)
-
 ---
 
-## Introduction
+## :book: Introduction
 
-### Design Paradigm
-
-![Pipeline Comparison](docs/figures/figure_Com_pipeline_01.png)
+### :art: Design Paradigm
 
 Multi-Objective Evolutionary Algorithms (MOEAs) rely on neighborhood search operators (crossover, mutation, local search) whose design is critical to performance. Three paradigms are compared:
 
-1. **Expert Design** &mdash; Costly, domain-specific, hard to generalize
-2. **Single-Operator AHD** (EoH, FunSearch, ReEvo, etc.) &mdash; Optimizes each operator in isolation, ignores cross-operator coupling effects
-3. **E2OC (Ours)** &mdash; The first framework to co-evolve interdependent operators via MDP analysis and MCTS search
+1. :bust_in_silhouette: **Expert Design** &mdash; Costly, domain-specific, hard to generalize
+2. :wrench: **Single-Operator AHD** (EoH, FunSearch, ReEvo, etc.) &mdash; Optimizes each operator in isolation, ignores cross-operator coupling effects
+3. :rocket: **E2OC (Ours)** &mdash; The first framework to co-evolve interdependent operators via MDP analysis and MCTS search
 
-### E2OC Framework
+![Pipeline Comparison](docs/figures/figure_Com_pipeline_01.png){:width="70%"}
+
+### :building_construction: E2OC Framework
 
 ![E2OC Framework](docs/figures/figure_framwork_01.png)
 
 E2OC consists of four core components:
 
-**Warm-Start Initialization.** The algorithm generator $\mathcal{G}$ independently evolves each operator to build a structured **design thought space**, extracting semantic-level improvement suggestions from elite operators. This pre-constructs a curated set of high-quality design thoughts per operator, bounding the search from unbounded to tractable.
+:fire: **Warm-Start Initialization.** The algorithm generator $\mathcal{G}$ independently evolves each operator to build a structured **design thought space**, extracting semantic-level improvement suggestions from elite operators. This pre-constructs a curated set of high-quality design thoughts per operator, bounding the search from unbounded to tractable.
 
-**Language Space of Multi-Domain Thoughts.** Operator design thoughts correspond to semantic-level representations, each defining a decision paradigm or improvement direction. Internal relationships characterize alternatives within the same operator, while external relationships denote cross-domain dependencies (complementary, conflicting, or mutually exclusive) between different operators. MDP is used to analyze these coupling relationships.
+:brain: **Language Space of Multi-Domain Thoughts.** Operator design thoughts correspond to semantic-level representations, each defining a decision paradigm or improvement direction. Internal relationships characterize alternatives within the same operator, while external relationships denote cross-domain dependencies (complementary, conflicting, or mutually exclusive) between different operators. MDP is used to analyze these coupling relationships.
 
-**Progressive MCTS Search.** Explore **combinations** of design thoughts across operators to identify promising design strategies. The design space is modeled as a tree where node states represent design thoughts in different domains. UCB-based selection balances exploration and exploitation. Counter-intuitively, the bounded space improves performance by concentrating the evaluation budget.
+:mag: **Progressive MCTS Search.** Explore **combinations** of design thoughts across operators to identify promising design strategies. The design space is modeled as a tree where node states represent design thoughts in different domains. UCB-based selection balances exploration and exploitation. Counter-intuitively, the bounded space improves performance by concentrating the evaluation budget.
 
-**Operator Rotation Evolution.** Under a chosen design strategy, each operator is evolved and evaluated **in context** within the actual multi-operator system. During rotation, operators are progressively updated by replacing individual operators and evaluating their impact on overall performance. The **algorithm generator is pluggable**, built on the [LLM4AD](https://github.com/Optima-CityU/LLM4AD) platform and supporting multiple methods including **EoH, FunSearch, ReEvo, and MCTS-AHD**.
+:repeat: **Operator Rotation Evolution.** Under a chosen design strategy, each operator is evolved and evaluated **in context** within the actual multi-operator system. During rotation, operators are progressively updated by replacing individual operators and evaluating their impact on overall performance. The **algorithm generator is pluggable**, built on the [LLM4AD](https://github.com/Optima-CityU/LLM4AD) platform and supporting multiple methods including **EoH, FunSearch, ReEvo, and MCTS-AHD**.
 
-### Design Philosophy
+### :dart: Design Philosophy
 
 | Philosophy | Description |
 |-----------|-------------|
@@ -45,7 +44,7 @@ E2OC consists of four core components:
 | **Bounded over Unbounded** | Curated thought sets improve sample efficiency |
 | **Co-Design Yields Complementarity** | Evolved operators spontaneously develop functional division of labor |
 
-### Key Results
+### :trophy: Key Results
 
 | Benchmark | vs. Expert | vs. Best AHD (Single) | vs. Best AHD (Multi) |
 |-----------|-----------|----------------------|---------------------|
@@ -55,13 +54,13 @@ E2OC consists of four core components:
 
 **Cost**: ~$1.14 per design task (DeepSeek-Chat). **Generalization**: operators trained on TSP-100 transfer to TSP-200 with +22.06% HV gain.
 
-![Convergence Analysis](figures/figure_convergence_ana_01.png)
+![Convergence Analysis](docs/figures/figure_convergence_ana_01.png)
 
 E2OC sustains **continuous optimization**: Round 1 &rarr; Round 2 (+0.8% HV) &rarr; Round 3 (+1.6% HV) without convergence traps. Operators generalize across problem scales (TSP-100 &rarr; TSP-150/200).
 
 ---
 
-## Requirements
+## :package: Requirements
 
 - Python >= 3.9
 - `numpy < 2.0.0`, `scipy`, `torch`, `networkx`
@@ -73,7 +72,7 @@ The MOEA engine is implemented in pure Python and included in the repository. No
 
 ---
 
-## Quick Start
+## :zap: Quick Start
 
 ### Installation
 
@@ -109,10 +108,10 @@ python run_e2oc.py
 ```
 
 The framework will execute the four-component co-evolution process:
-1. **Warm-Start**: Initialize operator populations via independent evolution
-2. **Language Space**: Build multi-domain design thought space
-3. **Progressive MCTS Search**: Explore design strategy combinations
-4. **Operator Rotation Evolution**: Co-evolve operators in context
+1. :fire: **Warm-Start**: Initialize operator populations via independent evolution
+2. :brain: **Language Space**: Build multi-domain design thought space
+3. :mag: **Progressive MCTS Search**: Explore design strategy combinations
+4. :repeat: **Operator Rotation Evolution**: Co-evolve operators in context
 
 Results are saved to `outputs_tsp/`.
 
@@ -127,13 +126,13 @@ Results are saved to `outputs_tsp/`.
 
 ---
 
-## Use E2OC in Your Application
+## :rocket: Use E2OC in Your Application
 
 *Coming soon:* A dedicated guide for adapting E2OC to new multi-objective optimization problems and using individual generators (EoH, FunSearch, etc.) independently.
 
 ---
 
-## Citation
+## :bookmark: Citation
 
 If you find E2OC helpful for your research or applied projects, please cite:
 
@@ -149,14 +148,14 @@ If you find E2OC helpful for your research or applied projects, please cite:
 
 If you are interested in LLM4Opt or E2OC, you can:
 
-- Contact us through email: junhaoqiu2-c@my.cityu.edu.hk
-- Visit a collection of references and research papers on LLM4Opt
-- Join our Group (coming soon)
+- :email: Contact us through email: junhaoqiu2-c@my.cityu.edu.hk
+- :books: Visit a collection of references and research papers on LLM4Opt
+- :people_holding_hands: Join our Group (coming soon)
 
 If you encounter any difficulty using the code, please contact us through the above or submit an issue.
 
 ---
 
-## License
+## :scroll: License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
