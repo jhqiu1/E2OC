@@ -20,7 +20,7 @@ Multi-Objective Evolutionary Algorithms (MOEAs) rely on neighborhood search oper
 2. :wrench: **Single-Operator AHD** (EoH, FunSearch, ReEvo, etc.) &mdash; Optimizes each operator in isolation, ignores cross-operator coupling effects
 3. :rocket: **E2OC (Ours)** &mdash; The first framework to co-evolve interdependent operators via MDP analysis and MCTS search
 
-<img src="docs/figures/figure_Com_pipeline_01.png" width="70%" alt="Pipeline Comparison">
+<p align="center"><img src="docs/figures/figure_Com_pipeline_01.png" width="60%" alt="Pipeline Comparison"></p>
 
 ### :building_construction: E2OC Framework
 
