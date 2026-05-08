@@ -5,6 +5,7 @@
 [![Release](https://img.shields.io/badge/Release-v1.0.0-green.svg)]()
 [![arXiv](https://img.shields.io/badge/arXiv-2601.17899-b31b1b.svg)](https://arxiv.org/abs/2601.17899)
 [![Website](https://img.shields.io/badge/Website-E2OC-8A2BE2.svg)](https://jhqiu1.github.io/e2oc)
+[**中文**](README_CN.md)
 
 **E2OC** is the first framework for multi-operator co-design in MOEAs. It leverages MDP to analyze cross-operator coupling relationships and jointly evolves operator design strategies with executable code via Monte Carlo Tree Search. Existing LLM-based AHD methods optimize each operator independently, ignoring a fundamental challenge: modifying one operator reshapes the search landscape for others. E2OC addresses this by co-evolving interdependent operators, and its modular architecture enables flexible extension with new components.
 

@@ -4,6 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Release](https://img.shields.io/badge/Release-v1.0.0-green.svg)]()
 [![arXiv](https://img.shields.io/badge/arXiv-2601.17899-b31b1b.svg)](https://arxiv.org/abs/2601.17899)
+[![Website](https://img.shields.io/badge/Website-E2OC-8A2BE2.svg)](https://jhqiu1.github.io/e2oc)
+[**English**](README.md)
 
 **E2OC** 是首个面向 MOEA 的多算子协同设计框架。它利用马尔可夫决策过程 (MDP) 分析算子间的耦合关系，通过蒙特卡洛树搜索实现算子设计策略与可执行代码的联合演化。现有基于 LLM 的自动启发式设计方法独立优化每个算子，忽略了一个根本性挑战：修改一个算子会重塑其他算子的搜索环境。E2OC 通过协同演化相互依赖的算子来解决这一问题，其模块化架构支持灵活扩展新组件。
 
